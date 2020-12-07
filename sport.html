@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK" ng-app>
+<head>
+    <title>Sport- ebay</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <link rel="stylesheet" href="./hktdocs/ebay_main.css">
+
+</head>
+<body>
+<!-- -----------------------------header-------------------------------- -->
+<header class="navbar">
+    <div id="header0" class="container">
+        <ul id="header1" class="navbar-nav float-left flex-row mb-1">
+            <li class="nav-item">
+                <span>Hi! </span>
+                <a class="nav-link sm-pad blue-link" href="./login.html">Sign in</a>
+            </li>
+            <li class="nav-item sm-pad">
+                <span> or </span>
+                <a class="nav-link sm-pad blue-link" href="./login.html">register</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link black-link" href="#">Daily Deals</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link black-link" href="./contact_us.html">Help & Contact</a>
+            </li>
+        </ul>
+        <ul id="header2"class="navbar-nav float-right flex-row mb-1">
+            <li class="nav-item">
+                <a class="nav-link shipto" href="#">Ship to</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link black-link" href="#">Sell</a>
+            </li>
+            <li class="nav-item dropdown" >
+                <span id="watchlist" type="button" class="dropdown-toggle" data-toggle="dropdown">
+                    Watchlist<span class="caret"></span>
+                </span>
+                <div class="dropdown-menu" aria-lablledby="watchlist"></div>
+            </li>
+            <li class="nav-item" id="myEbay">
+                <a class="nav-link black-link" href="#">
+                    My ebay
+                </a>
+                <div id="myEbay_toggle_div">
+                    <ul id="myEbay_toggle">
+                        <li>
+                            <a class="black-link" href="#">Summary</a>
+                        </li>
+                        <li>
+                            <a class="black-link" href="#">Recently Viewed</a>
+                        </li>
+                        <li>
+                            <a class="black-link" href="#">Bids/Offer</a>
+                        </li>
+                        <li>
+                            <a class="black-link" href="#">Watchlist</a>
+                        </li>
+                        <li>
+                            <a class="black-link" href="#">Purcahse History</a>
+                        </li>
+                        <li>
+                            <a class="black-link" href="#">Buy Again</a>
+                        </li>
+                        <li>
+                            <a class="black-link" href="#">Selling</a>
+                        </li>
+                        <li>
+                            <a class="black-link" href="#">Saved Searches</a>
+                        </li>
+                        <li>
+                            <a class="black-link" href="#">Saved Sellers</a>
+                        </li>
+                        <li>
+                            <a class="black-link" href="#">Messages</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" style="width:36px;height:25px;margin-top:-5px;margin-right: 15px;" title="My alert">
+                <img src="./img/header/alert.png" alt="my alert" style="height:100%;">
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" style="width:36px;height:25px;margin-top:-5px;" title="My cart">
+                <img src="./img/header/cart.png" alt="my cart" style="height:100%;">
+            </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<!-- ---------------------------------nav----------------------------------- -->
+<nav class="navbar" style="padding:0">
+    <div class="container" style="border-bottom: 1px solid lightgrey;">
+		<div class="row">
+			<a href="./main.html" style="padding:0">
+            	<img id="navbar-brand" src="./img/general/ebay.png" class="navbar-brand float-left mx-auto" height="65px" alt="Ebay Logo" style="display:block;">
+        	</a>
+			<div class="dropdown" style="width:90px;">
+				<button id="shopBtn" type="button" 
+					class="float-left" 
+					name="cate0" data-toggle="dropdown">
+					Shop by<br>
+					category
+				</button>
+				<div class="dropdown-menu"aria-labelledby="shopBtn">
+					<a href="#"></a>
+				</div>
+			</div>
+			<form id="search-form" class="form-inline col">
+				<table class="">
+					<tr>
+						<td style="position:relative; left: 0.3px;">
+							<img id="magnifier" src="./img/general/magnifier.png" alt="">
+							<input id="search-field" class="form-control" type="text" name="search-content" placeholder="Search for anything">
+						</td>
+						<td>
+							<div class="text-field">
+								<select id="category-textfield" class="form-control" name="cate">
+									<option selected="selected" value="0">All Category</option>
+									<option value="1">Antique</option>
+									<option value="2">Art</option>
+									<option value="3">Book</option>
+									<option value="4">Electronics</option>
+									<option value="5">Food</option>
+									<option value="6">Toys</option>
+									<option value="7">Sport</option>
+								</select>
+							</div>
+						</td>
+						<td>
+							<button id="searchBtn" type="submit" >Search</button>
+						</td>
+						<td>
+							<a id="search" href="#" class="shipto" title="Advanced Searching">Advanced</a>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+    </div>
+</nav>
+<!-- ---------------------main---------------------- -->
+<div class="container" id="category_banner" >
+    <a id="category_back_home" href="./main.html">ebay</a>
+    <span></span>
+    <span id="category_text">Sport</span>
+    <h2 style="color:white;">Sport</h2>
+    <img id="category_banner_img" src="./img/category/jess/sport header.jpg" alt="">
+</div>
+<div class="container" id="main_category_display">
+    <div class="row">
+      <div id="category_ul">
+          <ul>
+              <li><strong>Shop by Category</strong></li>
+              <li class="category_ul_li"><a href="#">Running</a></li>
+              <li class="category_ul_li"><a href="#">Training, Fitness and Yoga</a></li>
+              <li class="category_ul_li"><a href="#">Team Sports</a></li>
+              <li class="category_ul_li"><a href="#">Tennis and Racquet Sports</a></li>
+			  <li class="category_ul_li"><a href="#">Golf</a></li>
+              <li class="category_ul_li"><a href="#">Hiking and Camping</a></li>
+              <li class="category_ul_li"><a href="#">Water Sports</a></li>
+			  <li class="category_ul_li"><a href="#">Winter Sports</a></li>
+              <li class="category_ul_li"><a href="#">Cycling</a></li>
+              <li class="category_ul_li"><a href="#">Boxing, Martial Arts</a></li>
+              
+              
+          </ul>
+          <hr>
+      </div>
+      <div class="category_display col" style="margin-top:25px;">
+          <strong style="font-size: 20px;">Shop By Category</strong>
+          <div class="text-center row">
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/Running.jpg" alt="">
+                  </div>
+                  Running
+              </a>
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/Fitness.jpg" alt="">
+                  </div>
+                 Training, Fitness and Yoga
+              </a>
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/Teamsport.jpg" alt="">
+                  </div>
+                  Team Sports
+              </a>
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/Tennis.jpeg" alt="">
+                  </div>
+                  Tennis and Racquet Sports
+              </a>
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/golf.jpeg" alt="">
+                  </div>
+                  Golf
+              </a>
+          </div>
+          <div class="text-center row">
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/Hiking and camping.jpeg" alt="">
+                  </div>
+                  Hiking and Camping
+            </a>
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/water sport.jpeg" alt="">
+                  </div>
+                 Water Sports
+              </a>
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/Winter sports.jpeg" alt="">
+                  </div>
+                  Winter Sports
+              </a>
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/Cycling.jpeg" alt="">
+                  </div>
+                  Cycling
+              </a>
+              <a class="col category_display_item" href="#">
+                  <div class="category_display_item_div">
+                      <img src="./img/category/jess/Boxing.jpeg" alt="">
+                  </div>
+                  Boxing, Martial Arts
+              </a>
+          </div>
+          <hr>
+      </div>
+    </div>
+</div>
+<!-- ----------------------footer---------------------------- -->
+<footer>
+    <div class="container">
+        <ul id="footer_list">
+            <li id="red_list" >
+                <span style="color:red">About us</span>
+                <ul>
+                    <li><a href="">Our vision</a></li>
+                    <li><a href="">Career</a></li>
+                    <li><a href="./contact_us.html">Contact us</a></li>
+                </ul>
+            </li>
+            <li id="blue_list">
+                <span style="color:blue;">eBay companies</span>
+                <ul>
+                    <li><a href="">eBay Classifieds</a></li>
+                    <li><a href="">Close5</a></li>
+                    <li><a href="">See all companies</a></li>
+                </ul>
+            </li>
+            <li id="yellow_list" >
+                <span style="color:rgb(211, 171, 62);">Tools</span>
+                <ul>
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="#"> Security center</a></li>
+                    <li><a href="#"> eBay official time</a></li>
+                    <li><a href="">Site map</a></li>
+                </ul>
+            </li>
+            <li id="green_list" >
+                <span style="color:green;">Stay connected</span>
+                <ul>
+                    <li><a href="">eBay's Blogs</a></li>
+                    <li><a href=""><img src="">Facebook</a>
+                    </li>
+                    <li><a href=""><img src="">Twitter</a>
+                    </li>
+                    <li><a href=""><img src="">Instagram</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script>
+$("#myEbay").mouseenter(function(){
+    $(this).children("#myEbay_toggle_div").show();
+    $("#second_nav_container").css({
+        "z-index":"0",
+    });
+});
+$("#myEbay").mouseleave(function(){
+    $(this).children("#myEbay_toggle_div").hide();
+    $("#second_nav_container").css({
+        "z-index":"unset",
+    });
+});
+$("#search-field").focus(function(){
+$(this).css({
+    "text-indent":"0px",
+});
+$(this).removeAttr("placeholder");
+$("#magnifier").hide();
+});
+
+$("#search-field").focusout(function(){
+$(this).css({
+    "text-indent":"20px",
+});
+$(this).attr({
+    "placeholder":"Search for anything",
+    });
+$("#magnifier").show();
+});
+$(window).on("resize",function(){
+    $(".category_display_item_div").height($(".category_display_item").width());
+});
+$(document).ready(function(){
+    $(".category_display_item_div").height($(".category_display_item").width());
+});
+</script>
+</body>
+</html>

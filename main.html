@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK" ng-app>
+<head>
+    <title>Shop at Ebay!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <link rel="stylesheet" href="./hktdocs/ebay_main.css">
+</head>
+<body>
+<!-- -----------------------------header-------------------------------- -->
+  <header class="navbar">
+    <div id="header0" class="container">
+      <ul id="header1" class="navbar-nav float-left flex-row mb-1">
+        <li class="nav-item">
+            <span>Hi! </span>
+            <a class="nav-link sm-pad blue-link" href="./login.html">Sign in</a>
+        </li>
+        <li class="nav-item sm-pad">
+            <span> or </span>
+            <a class="nav-link sm-pad blue-link" href="./login.html">register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link black-link" href="#">Daily Deals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link black-link" href="./contact_us.html">Help & Contact</a>
+        </li>
+      </ul>
+      <ul id="header2"class="navbar-nav float-right flex-row mb-1">
+        <li class="nav-item">
+          <a class="nav-link shipto" href="#">Ship to</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link black-link" href="#">Sell</a>
+        </li>
+        <li class="nav-item dropdown" >
+          <span id="watchlist" type="button" class="dropdown-toggle" data-toggle="dropdown">
+            Watchlist<span class="caret"></span>
+          </span>
+          <div class="dropdown-menu" aria-lablledby="watchlist"></div>
+        </li>
+        <li class="nav-item" id="myEbay">
+            <a class="nav-link black-link" href="#">
+                My ebay
+            </a>
+            <div id="myEbay_toggle_div">
+                <ul id="myEbay_toggle">
+                    <li>
+                        <a class="black-link" href="#">Summary</a>
+                    </li>
+                    <li>
+                        <a class="black-link" href="#">Recently Viewed</a>
+                    </li>
+                    <li>
+                        <a class="black-link" href="#">Bids/Offer</a>
+                    </li>
+                    <li>
+                        <a class="black-link" href="#">Watchlist</a>
+                    </li>
+                    <li>
+                        <a class="black-link" href="#">Purcahse History</a>
+                    </li>
+                    <li>
+                        <a class="black-link" href="#">Buy Again</a>
+                    </li>
+                    <li>
+                        <a class="black-link" href="#">Selling</a>
+                    </li>
+                    <li>
+                        <a class="black-link" href="#">Saved Searches</a>
+                    </li>
+                    <li>
+                        <a class="black-link" href="#">Saved Sellers</a>
+                    </li>
+                    <li>
+                        <a class="black-link" href="#">Messages</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="width:36px;height:25px;margin-top:-5px;margin-right: 15px;" title="My alert">
+            <img src="./img/header/alert.png" alt="my alert" style="height:100%;">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="width:36px;height:25px;margin-top:-5px;" title="My cart">
+            <img src="./img/header/cart.png" alt="my cart" style="height:100%;">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+<!-- ---------------------------------nav----------------------------------- -->
+  <nav class="navbar" style="padding:0">
+    <div class="container" style="border-bottom: 1px solid lightgrey;">
+        <div class="row">
+            <a href="./main.html" style="padding:0">
+                <img id="navbar-brand" src="./img/general/ebay.png" class="navbar-brand float-left mx-auto" height="65px" alt="Ebay Logo" style="display:block;">
+            </a>
+            <div class="dropdown" style="width:90px;">
+                <button id="shopBtn" type="button" 
+                    class="float-left" 
+                    name="cate0" data-toggle="dropdown">
+                    Shop by<br>
+                    category
+                </button>
+                <div class="dropdown-menu" aria-labelledby="shopBtn">
+                    <a href="#"></a>
+                </div>
+          </div>
+          <form id="search-form" class="form-inline col">
+                <table class="">
+                    <tr>
+                        <td style="position:relative; left: 0.3px;">
+                            <img id="magnifier" src="./img/general/magnifier.png" alt="">
+                            <input id="search-field" class="form-control" type="text" name="search-content" placeholder="Search for anything">
+                        </td>
+                        <td>
+                            <div class="text-field">
+                                <select id="category-textfield" class="form-control" name="cate">
+                                    <option selected="selected" value="0">All Category</option>
+                                    <option value="1">Antique</option>
+                                    <option value="2">Art</option>
+                                    <option value="3">Book</option>
+                                    <option value="4">Electronics</option>
+                                    <option value="5">Food</option>
+                                    <option value="6">Toys</option>
+                                    <option value="7">Sport</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <button id="searchBtn" type="submit" >Search</button>
+                        </td>
+                        <td>
+                            <a id="search" href="#" class="shipto" title="Advanced Searching">Advanced</a>
+                        </td>
+                    </tr>
+                </table>
+          </form>
+        </div>
+    </div>
+</nav>
+<!-- ---------------------------------second nav--------------------------------- -->
+  <div id="second_nav_container" class="container" style="padding:0px;position:relative;">
+      <div id="second_nav">
+            <ul class="">
+                <!-- not a link -->
+                <li class="second_nav_li active"><span>Home</span></li>
+                <!-- no extra div below -->
+                <li class="second_nav_li"> ♥ <a href="#">Favorites</a></li>
+                <!-- extra div below -->
+                <li class="second_nav_li electronics" id="electronics"><a href="./electronics.html">Electronics</a></li>
+                <li class="second_nav_li fashion" id="fashion"><a href="./fashion.html">Fashion</a></li>
+                <li class="second_nav_li health_beauty" id="health_beauty"><a href="./h_b.html">Health & Beauty</a></li>
+                <li class="second_nav_li motors" id="motors"><a href="./motor.html">Motors</a></li>
+                <li class="second_nav_li collectibles" id="collectibles"><a href="./collectibles.html">Collectibles</a></li>
+                <li class="second_nav_li sports" id="sports"><a href="./sport.html">Sports</a></li>
+                <li class="second_nav_li hg" id="hg" ><a href="./h_g.html">Home & Garden</a></li>
+                <li class="second_nav_li deals" id="deals"><a href="./deals.html">Deals</a></li>
+                <!-- no extra div below -->
+                <li class="second_nav_li"><a href="#">Under $10</a></li>
+            </ul>
+      </div>
+      <div class="nav_container electronics row" id="electronics_div">
+            <div class="nav_container_inner_left row">
+                <div class="nav_container_inner_left_top">
+                    <span class="">Top Categories</span>
+                    <hr>
+                    <a href="#">Cell Phone & Accessories</a><br>
+                    <a href="#">Smart Watches</a><br>
+                    <a href="#">Video Games & Accessories</a><br>
+                    <a href="#">Computer & Tablets</a><br>
+                    <a href="#">Digital Cameras & Photo</a><br>
+                    <a href="#">Camera Drones</a><br>
+                    <a href="#">Deals</a><br>
+                </div>
+                <div class="nav_container_inner_left_other">
+                    <span class="">Other Categories</span>
+                    <hr>
+                    <a href="#">iPhone</a><br>
+                    <a href="#">Smart Watches</a><br>
+                    <a href="#">Portable Audio & Headphones</a><br>
+                    <a href="#">TV, Video & Home Audio</a><br>
+                    <a href="#">Vehicle Electronics & GPS</a><br>
+                    <a href="#">Smart Home</a><br>
+                </div>
+            </div>
+            <a class="col" href="#">
+                <div class="nav_container_inner_right">
+                    <img src="./img/nav_container/electronics.jpg" alt="">
+                </div>
+            </a>
+      </div>
+      <div class="nav_container fashion row" id="fashion_div">
+            <div class="nav_container_inner_left row">
+                <div class="nav_container_inner_left_top">
+                    <span class="">Top Categories</span>
+                    <hr>
+                    <a href="#">Women's Clothing</a><br>
+                    <a href="#">Women's Shoes</a><br>
+                    <a href="#">Men's Clothing</a><br>
+                    <a href="#">Men's Shoes</a><br>
+                    <a href="#">Watches, Parts & Accessories</a><br>
+                    <a href="#">Deals</a><br>
+                </div>
+                <div class="nav_container_inner_left_other">
+                    <span class="">Other Categories</span>
+                    <hr>
+                    <a href="#">Fine Jewelry</a><br>
+                    <a href="#">Fashion Jewelry</a><br>
+                    <a href="#">Men's Accessories</a><br>
+                    <a href="#">Women's Handbags & Bags</a><br>
+                    <a href="#">Kids' Clothing, Shoes & Accs</a><br>
+                </div>
+            </div>
+            <a class="col" href="#">
+                <div class="nav_container_inner_right" style="margin-top: -558px;">
+                    <img src="./img/nav_container/fashion.jpg" alt="">
+                </div>
+            </a>
+      </div>
+      <div class="nav_container health_beauty row" id="health_beauty_div">
+            <div class="nav_container_inner_left row">
+                <div class="nav_container_inner_left_top">
+                    <span class="">Top Categories</span>
+                    <hr>
+                    <a href="#">Makeup</a><br>
+                    <a href="#">Health Care</a><br>
+                    <a href="#">Fragrances</a><br>
+                    <a href="#">Nail Care, Manicure & Pedicure</a><br>
+                    <a href="#">Hair Care & Styling</a><br>
+                    <a href="#">Deals</a><br>
+                </div>
+                <div class="nav_container_inner_left_other">
+                    <span class="">Other Categories</span>
+                    <hr>
+                    <a href="#">Skin Care</a><br>
+                    <a href="#">Vitamins & Dietary Supplements</a><br>
+                    <a href="#">Shaving & Hair Removal</a><br>
+                    <a href="#">Vision Care</a><br>
+                    <a href="#">Bath & Body</a><br>
+                    <a href="#">Oral Care</a><br>
+                </div>
+            </div>
+            <a class="col" href="#">
+                <div class="nav_container_inner_right" style="margin-top: -100px;">
+                    <img src="./img/nav_container/h_b.jpg" alt="">
+                </div>
+            </a>
+      </div>
+      <div class="nav_container motors row" id="motors_div">
+            <div class="nav_container_inner_left row">
+                <div class="nav_container_inner_left_top">
+                    <span class="">Top Categories</span>
+                    <hr>
+                    <a href="#">Car & Truck Parts</a><br>
+                    <a href="#">Motorcycle Parts</a><br>
+                    <a href="#">ATV Parts</a><br>
+                    <a href="#">Scooter Parts</a><br>
+                    <a href="#">Snowmobile Parts</a><br>
+                    <a href="#">Deals</a><br>
+                </div>
+                <div class="nav_container_inner_left_other">
+                    <span class="">Other Categories</span>
+                    <hr>
+                    <a href="#">Motorcycle Apparel</a><br>
+                    <a href="#">Snowmobile Apparel</a><br>
+                    <a href="#">Motorcycle Accessories</a><br>
+                    <a href="#">Performance & Racing Parts</a><br>
+                    <a href="#">Vintage Car & Truck Parts</a><br>
+                    <a href="#">Car Electronics</a><br>
+                </div>
+            </div>
+            <a class="col" href="#">
+                <div class="nav_container_inner_right" style="margin-top:-500px;">
+                    <img src="./img/nav_container/motors.jpg" alt="">
+                </div>
+            </a>
+      </div>
+      <div class="nav_container collectibles row" id="collectibles_div">
+            <div class="nav_container_inner_left row">
+                <div class="nav_container_inner_left_top">
+                    <span class="">Top Categories</span>
+                    <hr>
+                    <a href="#">Action Figure</a><br>
+                    <a href="#">Coin and Paper Money</a><br>
+                    <a href="#">Stamp</a><br>
+                    <a href="#">Postcards</a><br>
+                    <a href="#">Autographed Memorabilia</a><br>
+                    <a href="#">Collectibles</a><br>
+                </div>
+                <div class="nav_container_inner_left_other">
+                    <span class="">Other Categories</span>
+                    <hr>
+                    <a href="#">Arts</a><br>
+                    <a href="#">Antiques</a><br>
+                    <a href="#">Pens & Writing Instruments</a><br>
+                    <a href="#">TV, Movie & Character Toys</a><br>
+                    <a href="#">Toy Vehicles</a><br>
+                    <a href="#">Comics</a><br>
+                </div>
+            </div>
+            <a class="col" href="#">
+                <div class="nav_container_inner_right" >
+                    <img src="./img/nav_container/antique.jpg" alt="">
+                </div>
+            </a>
+      </div>
+      <div class="nav_container sports row" id="sports_div">
+            <div class="nav_container_inner_left row">
+                <div class="nav_container_inner_left_top">
+                    <span class="">Top Categories</span>
+                    <hr>
+                    <a href="#">Cycling</a><br>
+                    <a href="#">Outdoor Sports</a><br>
+                    <a href="#">Hunting</a><br>
+                    <a href="#">Fishing</a><br>
+                    <a href="#">Fitness, Running & Yoga</a><br>
+                    <a href="#">Deals</a><br>
+                </div>
+                <div class="nav_container_inner_left_other">
+                    <span class="">Other Categories</span>
+                    <hr>
+                    <a href="#">Tennis</a><br>
+                    <a href="#">Swimming</a><br>
+                    <a href="#">Water Sports</a><br>
+                    <a href="#">Winter Sports</a><br>
+                    <a href="#">Team Sports</a><br>
+                    <a href="#">Fitness Technology</a><br>
+                </div>
+            </div>
+            <a class="col" href="#">
+                <div class="nav_container_inner_right">
+                    <img src="./img/nav_container/sport.jpg" alt="">
+                </div>
+            </a>
+      </div>
+      <div class="nav_container hg row" id="hg_div">
+            <div class="nav_container_inner_left row">
+                <div class="nav_container_inner_left_top">
+                    <span class="">Top Categories</span>
+                    <hr>
+                    <a href="#">Tools & Workshop Equipment</a><br>
+                    <a href="#">Yard, Garden & Outdoor Living</a><br>
+                    <a href="#">Home Improvement</a><br>
+                    <a href="#">Baby</a><br>
+                    <a href="#">Kitchen, Dining & Bar</a><br>
+                    <a href="#">Lamps, Lighting & Ceiling Fans</a><br>
+                    <a href="#">Deals</a><br>
+                </div>
+                <div class="nav_container_inner_left_other">
+                    <span class="">Other Categories</span>
+                    <hr>
+                    <a href="#">Home Decor</a><br>
+                    <a href="#">Home Organization Supplies</a><br>
+                    <a href="#">Art & Craft Supplies</a><br>
+                    <a href="#">Beads & Jewelry Making Supplies</a><br>
+                    <a href="#">Art Supplies</a><br>
+                    <a href="#">Scrapbooking & Paper Crafts</a><br>
+                    <a href="#">Pets Supplies</a><br>
+                </div>
+            </div>
+            <a class="col" href="#">
+                <div class="nav_container_inner_right" style="margin-top: -107px;">
+                    <img src="./img/nav_container/garden.jpg" alt="">
+                </div>
+            </a>
+      </div>
+      <div class="nav_container deals row" id="deals_div">
+            <div class="nav_container_inner_left row">
+                <div class="nav_container_inner_left_top">
+                    <span class="">Top Categories</span>
+                    <hr>
+                    <a href="#">Daily Deals</a><br>
+                    <a href="#">Tech Deals</a><br>
+                    <a href="#">Fashion Deals</a><br>
+                    <a href="#">Health and Beauty Deals</a><br>
+                    <a href="#">Home and Garden Deals</a><br>
+                    <a href="#">Sporting Goods Deals</a><br>
+                </div>
+                <div class="nav_container_inner_left_other">
+                    <span class="">Other Categories</span>
+                    <hr>
+                    <a href="#">Cellphone Deals</a><br>
+                    <a href="#">Camera Deals</a><br>
+                    <a href="#">Watches Deals</a><br>
+                    <a href="#">Jewelry Deals</a><br>
+                    <a href="#">Tech with Free shipping</a><br>
+                    <a href="#">Fashion with Free shipping</a><br>
+                    <a href="#">Hot trends of the week</a><br>
+                </div>
+            </div>
+            <a class="col" href="#">
+                <div class="nav_container_inner_right" style="margin-top: -288px;">
+                    <img src="./img/nav_container/cheap.jpg" alt="">
+                </div>
+            </a>
+      </div>
+  </div>
+<!-- -----------------------------------carousel--------------------------------- -->
+  <div id="main_carousel" class="container carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <!-- logistics -->
+            <div class="carousel-item active" id="carousel_1">
+                <div class="inner_div" id="inner_div1">
+                    <span class="inner_heading display">海淘轉運so easy!</span><br/>
+                    <span class="inner_text lead">開通即享eBay用戶專享運費折扣</span><br>
+                    <button class="inner_btn">立即加入轉運俱樂部</button>
+                </div>
+                <div class="inner_img" id="inner_img1"></div>
+            </div>
+            <!-- skincare -->
+            <div class="carousel-item " id="carousel_2">
+                <div class="inner_div" id="inner_div2">
+                    <span class="inner_heading display">護膚美妝包郵包稅</span><br/>
+                    <span class="inner_text lead">香港熱門賣家專場活動</span><br>
+                    <button class="inner_btn">立即購買</button>
+                </div>
+                <div class="inner_img" id="inner_img2"></div>
+            </div>
+            <!-- game -->
+            <div class="carousel-item" id="carousel_3">
+                <div class="inner_div" id="inner_div3">
+                    <span class="inner_heading display">好物禮遇</span><br/>
+                    <span class="inner_text lead">精選品牌數碼專場</span><br>
+                    <button class="inner_btn">立即購買</button>
+                </div>
+                <div class="inner_img" id="inner_img3"></div>
+            </div>
+            <!-- black friday -->
+            <div class="carousel-item" id="carousel_4">
+                <div class="inner_div" id="inner_div4">
+                    <span class="inner_heading display">感恩黑五，年度熱購</span><br/>
+                    <span class="inner_text lead">中國買家滿$200減$30或滿$60減$10</span><br>
+                    <button class="inner_btn">立即購買</button>
+                </div>
+                <div class="inner_img" id="inner_img4"></div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#main_carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#main_carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+  </div>
+<!-- ------------------------------------popular cat----------------------------- -->
+  <section class="container popular_ad">
+      <div>
+          <h3 class="popular_ad_heading">Electronics</h3>
+          <div class="popular_ad_whole col row">
+                <!-- 1st -->
+                <a class="popular_link col" href="#">
+                    <div class="popular_ad_image col" id="laptop"></div>
+                    <div class="popular_ad_text col">
+                        laptop
+                    </div>
+                </a>
+                <!-- 2nd -->
+                <a class="popular_link col" href="#">
+                    <div class="popular_ad_image col" id="iphone"></div>
+                    <div class="popular_ad_text col">
+                        iPhone
+                    </div>
+                </a>
+                <!-- 3rd -->
+                <a class="popular_link col" href="#">
+                    <div class="popular_ad_image col" id="ipad"></div>
+                    <div class="popular_ad_text col">
+                        iPad
+                    </div>
+                </a>
+                <!-- 4th -->
+                <a class="popular_link col" href="#">
+                    <div class="popular_ad_image col" id="headphones"></div>
+                    <div class="popular_ad_text col">
+                        Headphones
+                    </div>
+                </a>
+                <!-- 5th -->
+                <a class="popular_link col" href="#">
+                    <div class="popular_ad_image col" id="speakers"></div>
+                    <div class="popular_ad_text col">
+                        Portable Speakers
+                    </div>
+                </a>
+                <!-- 6th -->
+                <a class="popular_link col" href="#">
+                    <div class="popular_ad_image col" id="gaming"></div>
+                    <div class="popular_ad_text col">
+                        Gaming
+                    </div>
+                </a>
+                <!-- 7th -->
+                <a class="popular_link col" href="#">
+                    <div class="popular_ad_image col" id="good_things"></div>
+                    <div class="popular_ad_text col">
+                        Good things here!
+                    </div>
+                </a>
+          </div>
+      </div>
+  </section>
+<!-- -----------------------------------popular cat2----------------------------- -->
+<section class="container popular_ad">
+    <div>
+        <h3 class="popular_ad_heading">Fashion</h3>
+        <div class="popular_ad_whole col row">
+            <!-- 1st -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="citizen"></div>
+                <div class="popular_ad_text col">
+                    Citizen
+                </div>
+            </a>
+            <!-- 2nd -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="casio"></div>
+                <div class="popular_ad_text col">
+                    Casio
+                </div>
+            </a>
+            <!-- 3rd -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="rayban"></div>
+                <div class="popular_ad_text col">
+                    Rayban
+                </div>
+            </a>
+            <!-- 4th -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="new_balance"></div>
+                <div class="popular_ad_text col">
+                    New balance
+                </div>
+            </a>
+            <!-- 5th -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="under_arm"></div>
+                <div class="popular_ad_text col">
+                    Under Armour
+                </div>
+            </a>
+            <!-- 6th -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="adidas"></div>
+                <div class="popular_ad_text col">
+                    Adidas
+                </div>
+            </a>
+            <!-- 7th -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="daily"></div>
+                <div class="popular_ad_text col">
+                    Daily Deals
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- ---------------------------------ad 1--------------------------------------- -->
+<section id="ad_1" class="container">
+    <a href="#">
+        <div id="ad_1_background">
+            <div class="" id="ad_1_inner">
+                <span class="inner_heading display">玩轉體育周邊</span><br/>
+                <span class="inner_text lead">球星卡、簽名、手辦等你來</span><br>
+                <button class="inner_btn">立即購買</button>
+            </div>
+        </div>
+    </a>
+</section>
+<!-- ---------------------------------ad 2--------------------------------------- -->
+<section id="ad_2" class="container">
+    <a href="#">
+        <div id="ad_2_background">
+            <div class="" id="ad_2_inner">
+                <span class="inner_heading display">$15省心郵稅補貼</span><br/>
+                <span class="inner_text lead">轉運一鍵完成</span><br>
+                <button class="inner_btn">PCNIFFQ420</button>
+            </div>
+        </div>
+    </a>
+</section>
+<!-- ------------------------------------popular cat3---------------------------------- -->
+<section class="container popular_ad">
+    <div>
+        <h3 class="popular_ad_heading">Health & Beauty</h3>
+        <div class="popular_ad_whole col row">
+            <!-- 1st -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col laptop" id="skincare" ></div>
+                <div class="popular_ad_text col">
+                    Skin Care
+                </div>
+            </a>
+            <!-- 2nd -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="makeup"></div>
+                <div class="popular_ad_text col">
+                    Makeup
+                </div>
+            </a>
+            <!-- 3rd -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="fragrances"></div>
+                <div class="popular_ad_text col">
+                    Fragrances
+                </div>
+            </a>
+            <!-- 4th -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="vitamin"></div>
+                <div class="popular_ad_text col">
+                    Vitamin & Dietary Supplements
+                </div>
+            </a>
+            <!-- 5th -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="toothbrush"></div>
+                <div class="popular_ad_text col">
+                    Oral Care
+                </div>
+            </a>
+            <!-- 6th -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="shaving"></div>
+                <div class="popular_ad_text col">
+                    Shaving
+                </div>
+            </a>
+            <!-- 7th -->
+            <a class="popular_link col" href="#">
+                <div class="popular_ad_image col" id="home_improve"></div>
+                <div class="popular_ad_text col">
+                    Home Improvement
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- -------------------------------banner--------------------------------------- -->
+<section class="container banner" >
+    <div>
+        <span class="banner_heading display">11月13日至11月30日 購物車滿$200即减$30或滿$60即减$10（不含運費及税費）</span><br/>
+        <span class="banner_text lead">中國用戶（含香港，台灣）在ebay.com購物结算即可使用優惠码碼 PCNSMZDM或PCNSFBUY，數量有限，先到先得。</span>
+        <a href="#"><button class="inner_btn">任選即減</button></a>
+    </div>
+</section>
+<!-- ---------------------------------last banner-------------------------------- -->
+<section class="container last_banner_container">
+    <div class="row last_banner">
+        <div id="last_banner_left">
+            <span class="last_banner_left_heading">Get the Item</span><br>
+            <span class="last_banner_left_heading">Before It's Gone!</span><br>
+            <span class="last_banner_left_text">Receive notification when the price drops or stocks run low</span><br>
+            <a href="#"><button class="inner_btn">Discover Watchlist</button></a>
+        </div>
+        <div id="last_banner_right" class="col">
+            <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+                <a href="./deals.html">
+                    <img src="./img/general/giphy.gif" id="last_banner_right_img" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- -------------------------------footer--------------------------------------- -->
+<footer>
+    <div class="container">
+        <ul id="footer_list">
+            <li id="red_list" >
+                <span style="color:red">About us</span>
+                <ul>
+                    <li><a href="">Our vision</a></li>
+                    <li><a href="">Career</a></li>
+                    <li><a href="./contact_us.html">Contact us</a></li>
+                </ul>
+            </li>
+            <li id="blue_list">
+                <span style="color:blue;">eBay companies</span>
+                <ul>
+                    <li><a href="">eBay Classifieds</a></li>
+                    <li><a href="">Close5</a></li>
+                    <li><a href="">See all companies</a></li>
+                </ul>
+            </li>
+            <li id="yellow_list" >
+                <span style="color:rgb(211, 171, 62);">Tools</span>
+                <ul>
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="#"> Security center</a></li>
+                    <li><a href="#"> eBay official time</a></li>
+                    <li><a href="">Site map</a></li>
+                </ul>
+            </li>
+            <li id="green_list" >
+                <span style="color:green;">Stay connected</span>
+                <ul>
+                    <li><a href="">eBay's Blogs</a></li>
+                    <li><a href=""><img src="">Facebook</a>
+                    </li>
+                    <li><a href=""><img src="">Twitter</a>
+                    </li>
+                    <li><a href=""><img src="">Instagram</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script>
+
+$("#myEbay").mouseenter(function(){
+    $(this).children("#myEbay_toggle_div").show();
+    $("#second_nav_container").css({
+        "z-index":"0",
+    });
+});
+$("#myEbay").mouseleave(function(){
+    $(this).children("#myEbay_toggle_div").hide();
+    $("#second_nav_container").css({
+        "z-index":"unset",
+    });
+});
+
+$("#search-field").focus(function(){
+    $(this).css({
+        "text-indent":"0px",
+    });
+    $(this).removeAttr("placeholder");
+    $("#magnifier").hide();
+});
+
+$("#search-field").focusout(function(){
+    $(this).css({
+        "text-indent":"20px",
+    });
+    $(this).attr({
+        "placeholder":"Search for anything",
+        });
+    $("#magnifier").show();
+});
+// ----------- electronics div-----------------
+$("#electronics_div").hide();
+$(".electronics").mouseover(function(){
+    $("#electronics").css({
+        "border-width":"0 1px 1px",
+        "border-style":"solid",
+        "border-color":"white lightgray"
+    });
+    $("#electronics_div").show();
+});
+$(".electronics").mouseout(function(){
+    $("#electronics").css({
+        "border":"none",
+    });
+    $("#electronics_div").hide();
+});
+// ----------------fashion Div---------------------
+$("#fashion_div").hide();
+
+$(".fashion").mouseover(function(){
+    $("#fashion").css({
+        "border-width":"0 1px 1px",
+        "border-style":"solid",
+        "border-color":"white lightgray"
+    });
+    $("#fashion_div").show();
+
+});
+$(".fashion").mouseout(function(){
+    $("#fashion").css({
+        "border":"none",
+    });
+    $("#fashion_div").hide();
+
+});
+// ---------------------hb div----------------------
+$("#health_beauty_div").hide();
+
+$(".health_beauty").mouseover(function(){
+    $("#health_beauty").css({
+        "border-width":"0 1px 1px",
+        "border-style":"solid",
+        "border-color":"white lightgray"
+    });
+    $("#health_beauty_div").show();
+
+});
+$(".health_beauty").mouseout(function(){
+    $("#health_beauty").css({
+        "border":"none",
+    });
+    $("#health_beauty_div").hide();
+});
+
+// --------------motor div----------------------------
+$("#motors_div").hide();
+
+$(".motors").mouseover(function(){
+    $("#motors").css({
+        "border-width":"0 1px 1px",
+        "border-style":"solid",
+        "border-color":"white lightgray"
+    });
+    $("#motors_div").show();
+
+});
+$(".motors").mouseout(function(){
+    $("#motors").css({
+        "border":"none",
+    });
+    $("#motors_div").hide();
+
+});
+//---------------collectibles-------------------------
+$("#collectibles_div").hide();
+
+$(".collectibles").mouseover(function(){
+    $("#collectibles").css({
+        "border-width":"0 1px 1px",
+        "border-style":"solid",
+        "border-color":"white lightgray"
+    });
+    $("#collectibles_div").show();
+
+});
+$(".collectibles").mouseout(function(){
+    $("#collectibles").css({
+        "border":"none",
+    });
+    $("#collectibles_div").hide();
+
+});
+//-------------sports----------------------------------
+$("#sports_div").hide();
+
+$(".sports").mouseover(function(){
+    $("#sports").css({
+        "border-width":"0 1px 1px",
+        "border-style":"solid",
+        "border-color":"white lightgray"
+    });
+    $("#sports_div").show();
+    
+});
+$(".sports").mouseout(function(){
+    $("#sports").css({
+        "border":"none",
+    });
+    $("#sports_div").hide();
+
+});
+//------------------home and garden-------------------
+$("#hg_div").hide();
+
+$(".hg").mouseover(function(){
+    $("#hg").css({
+        "border-width":"0 1px 1px",
+        "border-style":"solid",
+        "border-color":"white lightgray"
+    });
+    $("#hg_div").show();
+});
+$(".hg").mouseout(function(){
+    $("#hg").css({
+        "border":"none",
+    });
+    $("#hg_div").hide();
+});
+//-----------------deals-----------------------------
+$("#deals_div").hide();
+
+$(".deals").mouseover(function(){
+    $("#deals").css({
+        "border-width":"0 1px 1px",
+        "border-style":"solid",
+        "border-color":"white lightgray"
+    });
+    $("#deals_div").show();
+});
+$(".deals").mouseout(function(){
+    $("#deals").css({
+        "border":"none",
+    });
+    $("#deals_div").hide();
+
+});
+var $window = $(window).on("resize", function(){
+    $(".popular_ad_image").height($(".popular_ad_image").width());
+}).trigger('resize');
+// ---------------------popular ad-----------------------
+$(".popular_link").mouseenter(function(){
+    $(this).children(".popular_ad_image").css({
+        "border":"1px solid lightgrey",
+    })
+});
+$(".popular_link").mouseleave(function(){
+    $(this).children(".popular_ad_image").css({
+        "border":"none",
+    })
+});
+</script>
+</body>

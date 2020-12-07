@@ -1,0 +1,137 @@
+<!Doctype html>
+<html lang="en" ng-app> 
+<head>
+    <title>Login - ebay</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <link rel="stylesheet" href="./hktdocs/first.css"/>
+</head>
+<body>
+     <!-- ----------------------------modal------------------------ -->
+     <div class="modal fade" id="new_form" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+                <div class="col">
+                    <h5 class="modal-title" id="staticBackdropLabel"><b>Register</b></h5> <br>
+                    <span id="modal_header_text" style="margin-left: -81px;">Quick & Easy</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -60px;margin-right: -35px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <form action="" class="form-group modal-body">
+                <div class="form-inline">
+                    <input type="text" class="form-control col" name="reg_firstName" ng-model="reg_firstName" placeholder="First Name" required/>
+                    <input type="text" class="form-control col" name="reg_lastName"  ng-model="reg_lastName" placeholder="Last Name" required/>
+                </div>
+                <input type="email" class="form-control" name="reg_email" ng-model="reg_email" placeholder="Email" required/>
+                <input type="password" class="form-control" name="reg_pw" ng-model="reg_pw" placeholder="Password of 8 Alphabetic( UPPERCASE & LOWERCASE ) & Numeric characters" required/>
+                <input type="password" class="form-control" name="reg_pwConfirm" ng-model="reg_pwConfirm" placeholder="Confirm Your Password" required/>
+                <div id="birth_gender" class="form-inline">
+                    <input type="text" class="form-control col" name="birth_date" placeholder="Date of Birth" id="datepicker" required/>
+                    <label id="gender_label" for="gender">Gender</label>
+                    <select class="form-control col" id="gender" name="gender">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+            </form>
+            <div class="modal-footer">
+              <button type="submit" id="reg_btn" class="btn btn-success" disabled>Register</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- -----------------------------main---------------------------- -->
+    <div class="heroImage jumbotron" id="intro_div">
+        <div id="main_container" class="container mx-auto">
+            <div class="col" id="intro">
+                <img id="logo" src="./img/general/ebay.png" alt="logo">
+                <br>
+                <span class="lead">Ebay, Your Babe for Online Shopping</span>
+                <br id="seperate">
+                <a href="./main.html"><button class="btn btn-danger">Continue Shopping</button></a>
+            </div>
+    <!-- -----------------------------login-------------------------- -->
+            <div id="login_div">
+                <form action="" name="reg" class="text-center" id="login_form">
+                    <div class="form-group login">
+                        <input class="form-control" name="login_email" type="email" ng-model="text" placeholder="Email Address">
+                    </div>
+                    <div class="form-group login">
+                        <input class="form-control" type="password" name="login_pw" id="" placeholder="Password">
+                    </div>
+                    <input type="submit" name="log_in" class="btn btn-primary col" value="Log in">
+                    <a href="#" id="forget_pw"><span >Forgotten Your Password?</span></a>
+                    <br>
+                    <hr style="background-color: darkgray;">
+                    <br>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#new_form">Create a new account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <ul id="footer_list">
+                <li id="red_list" >
+                    <span style="color:red">About us</span>
+                    <ul>
+                        <li><a href="">Our vision</a></li>
+                        <li><a href="">Career</a></li>
+                        <li><a href="./contact_us.html">Contact us</a></li>
+                    </ul>
+                </li>
+                <li id="blue_list">
+                    <span style="color:blue;">eBay companies</span>
+                    <ul>
+                        <li><a href="">eBay Classifieds</a></li>
+                        <li><a href="">Close5</a></li>
+                        <li><a href="">See all companies</a></li>
+                    </ul>
+                </li>
+                <li id="yellow_list" >
+                    <span style="color:rgb(211, 171, 62);">Tools</span>
+                    <ul>
+                        <li><a href="#">Developers</a></li>
+                        <li><a href="#"> Security center</a></li>
+                        <li><a href="#"> eBay official time</a></li>
+                        <li><a href="">Site map</a></li>
+                    </ul>
+                </li>
+                <li id="green_list" >
+                    <span style="color:green;">Stay connected</span>
+                    <ul>
+                        <li><a href="">eBay's Blogs</a></li>
+                        <li><a href=""><img src="">Facebook</a>
+                        </li>
+                        <li><a href=""><img src="">Twitter</a>
+                        </li>
+                        <li><a href=""><img src="">Instagram</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </footer>
+<script>
+$(function(){
+    $("#datepicker").datepicker({
+        changeMonth:true,
+        changeYear:true,
+        yearRange:"1900:2020",
+    });
+});
+</script>
+</body>
+</html>
